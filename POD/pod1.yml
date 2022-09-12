@@ -1,0 +1,102 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cni.projectcalico.org/containerID: fa26112787cd2a69b4118671db15c93213fdaa1442c42a4f7bcd487ef6da3a3d
+    cni.projectcalico.org/podIP: 10.4.0.12/32
+    cni.projectcalico.org/podIPs: 10.4.0.12/32
+  creationTimestamp: "2022-09-12T00:15:04Z"
+  labels:
+    run: samara-nginx
+  name: samara-nginx
+  namespace: default
+  resourceVersion: "2343584"
+  uid: 7b22613b-e1d3-47fa-9181-8676171039da
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: Always
+    name: samara-nginx
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-2m5qc
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: gke-cluster-1-default-pool-11efc57d-wh2c
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: kube-api-access-2m5qc
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-12T00:15:04Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-12T00:15:07Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-12T00:15:07Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2022-09-12T00:15:04Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://150fff285a2fad1eb160be21e238bd1af3f231280d7028533e96b428f67d2dad
+    image: nginx:latest
+    imageID: docker-pullable://nginx@sha256:b95a99feebf7797479e0c5eb5ec0bdfa5d9f504bc94da550c2f58e839ea6914f
+    lastState: {}
+    name: samara-nginx
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2022-09-12T00:15:06Z"
+  hostIP: 10.128.0.2
+  phase: Running
+  podIP: 10.4.0.12
+  podIPs:
+  - ip: 10.4.0.12
+  qosClass: BestEffort
+  startTime: "2022-09-12T00:15:04Z"

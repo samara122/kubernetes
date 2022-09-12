@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app_name: myweb1
+  name: samara-web2
+  namespace: team1
+spec:
+  containers:
+  - image: httpd
+    name: samara-web2-container
