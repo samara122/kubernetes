@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    appName: walletms
+  name: walletms
+  namespace: team1
+spec:
+  containers:
+  - image: wordpress
+    name: walletms-container

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kuard-rc-test-service
+spec:
+  externalIPs:
+  - 10.128.0.3
+  ports: 
+  - name: http 
+    port: 8080
+    protocol: TCP 
+    targetPort: 8080
+  selector:
+    app: kuard-rc-test-pod 
+
