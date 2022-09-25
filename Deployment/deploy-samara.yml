@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: samara-web-deploy
+  name: samara-web-deploy
+  annotations:
+    kubernetes.io/change-cause: "Version almashty to nginx:1.23"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: samara-web-deploy
+  template:
+    metadata:
+      labels:
+        app: samara-web-deploy
+    spec:
+      containers:
+      - image: nginx:1.23
+        name: nginx
+        ports:
+        - containerPort: 8080
