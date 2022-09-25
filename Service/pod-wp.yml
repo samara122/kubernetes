@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: mywordpress
+  name: mywordpress
+spec:
+  containers:
+  - image: wordpress
+    name: mywordpress

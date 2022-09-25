@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: myweb2
+    appName: myweb1app
+    market: kg
+  name: myweb2
+spec:
+  containers:
+  - image: samara122/webapplication:v2
+    name: myweb2-cont
+    ports:
+    - containerPort: 80

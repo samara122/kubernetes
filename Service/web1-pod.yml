@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    appName: myweb1app
+    market: kg
+  
+  name: myweb1-pod
+spec:
+  containers:
+  - image: httpd
+    name: myweb1-cont
+    ports:
+    - containerPort: 80

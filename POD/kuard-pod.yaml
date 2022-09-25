@@ -3,7 +3,7 @@ kind: Pod
 metadata:
   labels:
     app:kuard-pod-lp-enabled
-  name:kuard-pod-lp-enabled
+    name:kuard-pod-lp-enabled
 spec:
   containers:
  - image: gcr.io/kuar-demo/kuard-amd64:1
@@ -19,4 +19,4 @@ spec:
       port: 
    - containerPort:8080
      name: http
-     protocol: TCP    
+     protocol: TCP  
