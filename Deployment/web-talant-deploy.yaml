@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-talant-deploy
+  annotations:
+    kubernetes.io/change-cause: "Version almashty to nginx:perl"
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: web-talant-deploy
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: web-talant-deploy
+    spec:
+      containers:
+      - image: nginx:perl
+        name: nginx
+        ports:
+        - containerPort: 80

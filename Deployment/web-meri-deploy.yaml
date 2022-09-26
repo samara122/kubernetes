@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: web-meri-deploy
+  name: web-meri-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-meri-deploy
+  strategy: {}
+  template:
+    metadata:
+    labels:
+        app: web-meri-deploy
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
