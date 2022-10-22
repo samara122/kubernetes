@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: testapp
+  namespace: test 
+spec:
+  containers:
+  - name: testapp
+    image: testapp
+    resources:
+      limits:
+        memory: "1G"
+        cpu: "200m"
+  
+    
+    
+      
+        
+        
+      
+        
+        
